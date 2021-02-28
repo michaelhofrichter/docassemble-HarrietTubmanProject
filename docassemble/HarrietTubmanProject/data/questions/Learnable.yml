@@ -1,0 +1,219 @@
+metadata:
+  title: Learn about Harriet Tubman
+  short title: Harriet Tubman
+  comment: This is a learning tool.  
+---
+features:
+  debug: True
+---
+auto terms:
+  Underground Railroad: |
+    The Underground Railroad was an escape path for slaves.
+  Civil War: | 
+    The Civil War was between the North and the Sourth regarding slavery.
+---
+mandatory: true
+code: | 
+  beginning
+  if birthplace != "Maryland":
+    birthplace_answer 
+  if real_name != "Anaminta Ross":
+    real_name_answer
+  if (nickname ['Conductor'] or nickname ['Moses']) or len(nickname.true_values()) != 2:
+    nickname_answer
+  if name_origin != "mother":
+    name_origin_answer
+  if not standing_up:
+    standing_up_answer
+  if len(jobs.true_values()) != 5 or (jobs['butcher']):
+    jobs_answer
+  if conductor != True:
+    conductor_answer
+  if underground_railroad != "Escape Path":
+    underground_railroad_answer
+  if rewards != 40000:
+    rewards_answer 
+  if settled != "Auburn, New York":
+    settled_answer
+  all_done
+---
+question: |
+  testing
+subquestion: | 
+  number of true values - ${ len(nickname.true_values()) } 
+field: testing
+---
+question: |
+  Where was Harriet Tubman born?
+field: birthplace
+shuffle: True
+choices:
+  - Maryland
+  - Mississippi
+  - Montana
+  - Georgia
+---
+question: | 
+  Harriet Tubman's Birthplace
+subquestion: | 
+  Harriet Tubman was born a slave in Maryland.
+field: birthplace_answer
+---
+question: | 
+  Harriet Tubman's capture reward.
+subquestion: | 
+  If Harriet Tubman was captured, the rewards totold 40000. 
+field: rewards_answer
+---
+
+question: | 
+  What was Harriet Tubman's nickname?
+fields: 
+  - no label: nickname
+    datatype: checkboxes
+    shuffle: True
+    choices:
+      - Black Moses
+      - Moses
+      - Conductor
+      - General Tubman
+comment: | 
+  Both Black Moses and General Tubman are correct.
+---
+question: | 
+  Harriet Tubman's Nickname
+subquestion: | 
+  Harriet Tubman was given the nicknames Black Moses and General Tubman for helping slaves escape.
+field: nickname_answer
+---
+question: | 
+  Did anything happen to Harriet Tubman because she stood up for a slave while she was still a slave?
+yesno: standing_up
+---
+question: | 
+   Harriet Tubman's Call to Action
+subquestion: | 
+  By standing up for another slave, Harriet Tubman got hit in the head with a metal weight.
+field: standing_up_answer
+---
+question: |
+  Was Harriet Tubman a conductor on the Underground Railroad?
+yesno: conductor
+---
+question: |
+  Harriet Tubman's role on the Underground Railroad
+subquestion: |
+  Harriet Tubman helped slaves go to safe homes, as a conductor on the Underground Railroad.
+field: conductor_answer
+---
+
+question: |
+  What was Harriet Tubman's real name? 
+field: real_name
+shuffle: True
+choices:
+  - Black Moses
+  - Anaminta Ross
+  - Harriet Tubman
+  - Ross Anaminta
+---
+question: |
+  Harriet Tubman's real name
+subquestion: | 
+  Anaminta Ross later changed her name to Harriet Tubman.
+field: real_name_answer
+---
+question: |
+  What was the Underground Railroad?
+field: underground_railroad
+choices:
+  - A Railroad
+  - Escape Path
+---
+question: | 
+  What was the Underground Railroad?
+subquestion: | 
+  The Underground Railroad was an Escape Path.
+field: underground_railroad_answer
+---
+question: | 
+  Whose name inspired Anaminta Ross to pick the name Harriet Tubman?
+field: name_origin
+shuffle: True
+choices: 
+  - Her sister: sister
+  - Her brother: brother
+  - Her owner: owner
+  - Her mother: mother
+---
+question: |
+  Harriet Tubman's Inspiration for her New Name
+subquestion: | 
+  Anaminta Ross adopted her mothers name Harriet Tubman.
+field: name_origin_answer
+---
+question: |
+  How much did rewards offered by slaveholders for Tubman's capture eventual total? 
+fields:
+  - no label: rewards
+    input type: radio
+    datatype: currency
+    choices:
+      - $400: 400
+      - $4,000: 4000
+      - $40,000: 40000
+---
+question: | 
+  Where did Harriet Tubman settle after the **Civil War**?
+field: settled
+shuffle: True
+choices:
+  - Auburn, New York
+  - Auburn, California
+  - Auburn, Mississippi
+  - Auburn, Alabama
+---
+question: |
+  Where Harriet Tubman settled
+subquestion: | 
+  After the **Civil War**, Harriet Tubman settled in Aburn, New York.
+field: settled_answer
+---
+question: |
+  What jobs did Harriet Tubman have when she was a slave?
+fields:
+  - no label: jobs
+    datatype: checkboxes
+    shuffle: True
+    choices:
+      - cook
+      - butcher
+      - field hand
+      - nurse
+      - maid
+      - woodcutter
+---
+question: |
+  Harriet Tubman's jobs
+subquestion: | 
+  Harriet Tubman worked as a field hand, cook, nurse, maid and a woodcutter.
+field: jobs_answer
+---
+question: |
+  Congratulations, you finished the Harriet Tubman Quiz!
+subquestion: | 
+  I hope you had a good time!
+buttons:
+  - Try again: restart
+  - Learn More: logout
+    url: https://www.britannica.com/biography/Harriet-Tubman
+mandatory: True
+sets: all_done
+---
+question: | 
+  Welcome!
+subquestion: |
+  This is a quiz about Harriet Tubman. You might learn about her, too.
+continue button field: beginning
+under: | 
+  This was developed by Razele Hofrichter.
